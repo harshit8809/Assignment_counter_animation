@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { TextField, Button, Container, Typography, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -19,9 +19,8 @@ const UserDataForm: React.FC = () => {
     reset,
   } = useForm<FormData>();
 
-  const [userId, setUserId] = useState<string | null>(null);
+  // const [ setUserId] = useState<string | null>(null);
   const navigate = useNavigate();
-
   const generateUserId = () => {
     return `user_${Date.now()}`;
   };
@@ -31,13 +30,13 @@ const UserDataForm: React.FC = () => {
     localStorage.setItem("userData", JSON.stringify(userData));
     alert("Data saved successfully!");
     reset();
-    setUserId(null);
-    navigate("/user-data", { state: userData }); // Navigate to the new screen with data
+    // setUserId(null);
+    navigate("/user-data", { state: userData }); 
   };
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
     const newUserId = generateUserId();
-    setUserId(newUserId);
+    // setUserId(newUserId);
     saveDataToLocalStorage({ ...data, userId: newUserId });
   };
 

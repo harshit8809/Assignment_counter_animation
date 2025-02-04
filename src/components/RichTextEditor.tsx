@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css"; // Import Quill styles
-import { Button } from "@mui/material"; // Optional: Use Material UI for styling
+import "react-quill/dist/quill.snow.css"; 
+import { Button } from "@mui/material"; 
 
 const RichTextEditor: React.FC = () => {
   const [content, setContent] = useState<string>("");
 
-  // Load saved content from localStorage on component mount
   useEffect(() => {
     const savedContent = localStorage.getItem("richTextContent");
     if (savedContent) {
@@ -14,18 +13,15 @@ const RichTextEditor: React.FC = () => {
     }
   }, []);
 
-  // Save content to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem("richTextContent", content);
   }, [content]);
 
-  // Clear all data from the editor and localStorage
   const handleClear = () => {
-    setContent(""); // Clear the editor content
-    localStorage.removeItem("richTextContent"); // Remove saved content from localStorage
+    setContent(""); 
+    localStorage.removeItem("richTextContent"); 
   };
 
-  // Quill modules for toolbar customization
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, false] }],
@@ -36,7 +32,6 @@ const RichTextEditor: React.FC = () => {
     ],
   };
 
-  // Quill formats for supported formats
   const formats = [
     "header",
     "bold",

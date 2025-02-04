@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Typography, Box, Container, Button } from "@mui/material";
-import { useSpring, animated } from "@react-spring/web"; // Import react-spring components
+import { useSpring, animated } from "@react-spring/web"; 
 
 const SubmittedDataScreen: React.FC = () => {
   const location = useLocation();
@@ -42,14 +42,12 @@ const SubmittedDataScreen: React.FC = () => {
         alignItems="center"
         minHeight="100vh"
       >
-        {/* Animate the title */}
         <animated.div style={fadeIn}>
           <Typography variant="h3" align="center" gutterBottom style={{ fontWeight: "bold" }}>
             User Data
           </Typography>
         </animated.div>
 
-        {/* Animate each data field */}
         <Box
           border={1}
           borderColor="grey.300"

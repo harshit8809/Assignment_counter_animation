@@ -2,35 +2,28 @@ import React, { useState, useEffect } from "react";
 import { useSpring, animated } from "@react-spring/web";
 import "../form.css"
 const Counter: React.FC = () => {
-  // State to manage the count
   const [count, setCount] = useState(() => {
-    // Retrieve the count from localStorage if it exists
     const savedCount = localStorage.getItem("count");
     return savedCount !== null ? parseInt(savedCount, 10) : 0;
   });
 
-  // Animation for background color
   const backgroundColorAnimation = useSpring({
     backgroundColor: `rgba(0, 100, 200, ${count / 20})`,
-    config: { tension: 120, friction: 30 }, // Adjust for bezier effect
+    config: { tension: 120, friction: 30 }, 
   });
 
-  // Save count to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem("count", count.toString());
   }, [count]);
 
-  // Increment function
   const increment = () => {
     setCount((prevCount) => prevCount + 1);
   };
 
-  // Decrement function
   const decrement = () => {
     setCount((prevCount) => (prevCount > 0 ? prevCount - 1 : 0));
   };
 
-  // Reset function
   const reset = () => {
     setCount(0);
   };

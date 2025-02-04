@@ -87,7 +87,7 @@ const UserDataForm: React.FC = () => {
             type="tel"
             {...register("phone", { required: "Phone is required" })}
           />
-          <Box mt={2} display="flex" justifyContent="space-between">
+          <Box mt={2} display="flex" justifyContent="space-between" gap={3}>
             <Button type="submit" variant="contained" color="primary">
               Submit
             </Button>

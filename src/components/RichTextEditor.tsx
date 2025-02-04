@@ -69,7 +69,7 @@ const RichTextEditor: React.FC = () => {
           dangerouslySetInnerHTML={{ __html: content }}
           style={{
             border: "1px solid #ccc",
-            padding: "10px",
+            padding: "15px",
             borderRadius: "4px",
           }}
         />

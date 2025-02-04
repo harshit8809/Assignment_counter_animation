@@ -1,0 +1,16 @@
+
+.counterBtn {
+    border: 1px;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .counterBtn:hover:not(:disabled) {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .counterBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+  }

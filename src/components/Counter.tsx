@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSpring, animated } from "@react-spring/web";
-
+import "../form.css"
 const Counter: React.FC = () => {
   // State to manage the count
   const [count, setCount] = useState(() => {
@@ -39,24 +39,37 @@ const Counter: React.FC = () => {
     <animated.div
       style={{
         ...backgroundColorAnimation,
-        height: "100vh",
+        height: "70vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         transition: "background-color 0.5s",
+        border: "1px",
+        borderRadius: "10px",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
       }}
     >
       <h1>Counter: {count}</h1>
-      <div>
-        <button onClick={increment} style={{ margin: "5px", padding: "10px" }}>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <button onClick={increment} className="counterBtn" style={{ margin: "5px", padding: "10px" }}>
           Increment
         </button>
-        <button onClick={decrement} style={{ margin: "5px", padding: "10px" }}>
-          Decrement
-        </button>
-        <button onClick={reset} style={{ margin: "5px", padding: "10px" }}>
+        <button
+          onClick={reset}
+          className="counterBtn"
+          style={{ margin: "5px", padding: "10px" }}
+          disabled={count < 1}
+        >
           Reset
+        </button>
+        <button
+          onClick={decrement}
+          className="counterBtn"
+          style={{ margin: "5px", padding: "10px" }}
+          disabled={count < 1}
+        >
+          Decrement
         </button>
       </div>
     </animated.div>

@@ -2,40 +2,23 @@ import React from "react";
 import Counter from "./components/Counter";
 import UserDataForm from "./components/UserDataForm";
 import RichTextEditor from "./components/RichTextEditor";
+import "./App.css";
 
 const App: React.FC = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        minHeight: "100vh",
-        padding: "20px",
-        backgroundColor: "#f5f5f5",
-      }}
-    >
-      <div
-        style={{
-          width: "100%",
-          maxWidth: "800px",
-          margin: "0 auto",
-        }}
-      >
-        <h1 style={{ textAlign: "center", marginBottom: "20px" }}>
-          React Project Assignment
-        </h1>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "20px",
-          }}
-        >
+    <div className="container">
+      <div className="top-section">
+        <div className="counter-box">
           <Counter />
-          <UserDataForm />
+        </div>
+        <div className="editor-box">
           <RichTextEditor />
+        </div>
+      </div>
+
+      <div className="bottom-section">
+        <div className="user-data-form">
+          <UserDataForm />
         </div>
       </div>
     </div>

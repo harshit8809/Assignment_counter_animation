@@ -1,9 +1,12 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* 
+.mainContainer{
   padding: 2rem;
-  text-align: center;
+  
+  background-color: red;
 }
+.rowOne{
+  display: flex;
+}*/
 
 .logo {
   height: 6em;
@@ -39,4 +42,64 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+#root {
+  text-align: center;
+  background-color: #f4def8;
+  flex: 1
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 50px;
+}
+
+.top-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  /* background-color: red; */
+}
+
+.counter-box, .editor-box {
+  flex: 1;
+  padding: 20px;
+  border: 2px solid white;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #ffe9e8;
+}
+
+.bottom-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.user-data-form, .contact-form {
+  flex: 1;
+  padding: 20px;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: #ffe9e8;
+
+}
+
+.contact-form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
 }

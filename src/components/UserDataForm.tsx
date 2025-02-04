@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { TextField, Button, Container, Typography, Box } from "@mui/material"; // Optional: Use Material UI for styling
+// import "../form.css"
 
 type FormData = {
   name: string;
@@ -57,7 +58,7 @@ const UserDataForm: React.FC = () => {
   }, [isDirty]);
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="xs">
       <Box mt={4}>
         <Typography variant="h4" align="center" gutterBottom>
           User Data Form
@@ -105,6 +106,7 @@ const UserDataForm: React.FC = () => {
         </form>
       </Box>
     </Container>
+    // </div>
   );
 };
 

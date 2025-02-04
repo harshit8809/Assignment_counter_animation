@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { TextField, Button, Container, Typography, Box } from "@mui/material"; // Optional: Use Material UI for styling
-// import "../form.css"
+import { TextField, Button, Container, Typography, Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 type FormData = {
   name: string;
   address: string;
   email: string;
   phone: string;
-  userId: string
+  userId: string;
 };
 
 const UserDataForm: React.FC = () => {
@@ -20,34 +20,32 @@ const UserDataForm: React.FC = () => {
   } = useForm<FormData>();
 
   const [userId, setUserId] = useState<string | null>(null);
+  const navigate = useNavigate();
 
-  // Generate a unique user ID
   const generateUserId = () => {
-    return `user_${Date.now()}`; // Simple unique ID based on timestamp
+    return `user_${Date.now()}`;
   };
 
-  // Save data to local storage
   const saveDataToLocalStorage = (data: FormData) => {
-    const userData = { ...data, userId };
+    const userData = { ...data };
     localStorage.setItem("userData", JSON.stringify(userData));
     alert("Data saved successfully!");
-    reset(); // Reset the form after submission
-    setUserId(null); // Reset user ID
+    reset();
+    setUserId(null);
+    navigate("/user-data", { state: userData }); // Navigate to the new screen with data
   };
 
-  // Handle form submission
   const onSubmit: SubmitHandler<FormData> = (data) => {
     const newUserId = generateUserId();
     setUserId(newUserId);
     saveDataToLocalStorage({ ...data, userId: newUserId });
   };
 
-  // Warn about unsaved changes
   useEffect(() => {
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
       if (isDirty) {
         e.preventDefault();
-        e.returnValue = ""; // Required for Chrome
+        e.returnValue = "";
       }
     };
 
@@ -106,7 +104,6 @@ const UserDataForm: React.FC = () => {
         </form>
       </Box>
     </Container>
-    // </div>
   );
 };
 

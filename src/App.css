@@ -1,4 +1,7 @@
-
+#root {
+  --text-color-dark: #fff;  /* Dark mode text color */
+  --text-color-light: #000; /* Light mode text color */
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -38,7 +41,7 @@
 
 #root {
   text-align: center;
-  background-color: #f4def8;
+  /* background-color: #f4def8; */
   flex: 1
 }
 
@@ -90,7 +93,7 @@ button {
   width: 100%;
   padding: 10px;
   border: none;
-  background-color: white;
+  /* background-color: white; */
   cursor: pointer;
 }
 @media (max-width: 800px) {

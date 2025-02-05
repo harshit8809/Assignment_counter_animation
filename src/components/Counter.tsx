@@ -9,7 +9,7 @@ const Counter: React.FC = () => {
 
   const backgroundColorAnimation = useSpring({
     backgroundColor: `rgba(0, 100, 200, ${count / 20})`,
-    config: { tension: 120, friction: 30 }, 
+    config: { tension: 120, friction: 30 },
   });
 
   useEffect(() => {
